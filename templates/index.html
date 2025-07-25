@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BUDDY BOT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="https://favicons.githubusercontent.com/openai.com" />
+</head>
+<body class="dark-mode">
+
+  <!-- ✅ Welcome Screen -->
+  <div class="welcome-screen" id="welcome-screen">
+    <!--<div class="speaker-icon">🔊</div>-->
+    <img src={{url_for('static',filename='chat.jpeg')}} class="speaker-icon" alt="speaker">
+    <h3>Welcome To</h3>
+    <h1 style="color:DodgerBlue;">BUDDY BOT</h1>
+    <p><b>Your Personal Assistant</b></p>
+    <button class="next-btn" id="next-to-note">Next</button><br><br>
+    <b>Created By</b>
+    <h3 style="color:DodgerBlue;">PAVAN SAI VARMA KONDURU</h3>
+  </div>
+
+  <!-- ✅ Note Screen -->
+  <div class="note-screen" id="note-screen" style="display: none;">
+    <img src={{url_for('static',filename='chat.jpeg')}} class="speaker-icon" alt="speaker">
+    <h3>About</h3>
+    <h1 style="color:DodgerBlue;">BUDDY BOT</h1>
+    <p>
+      This is a mini chatbot that can answer a wide range of questions. <br>
+      For current events or real-time data, enable the "Realtime" option at the top right.<br>  
+      For theory-based questions or math calculations, disable the "Realtime" option. <br> 
+      <b>NOTE:</b> Please note that it may occasionally provide inaccurate results.  <br>
+      <center><b>Thank you for using BUDDY BOT!</b></center>
+       <button class="next-btn" id="next-to-chat">Next</button>
+    </p>
+  </div>
+
+  <!-- ✅ Main Chat Page -->
+  <div id="chat-page" style="display: none;" class="container">
+    <!-- Sticky Top Bar -->
+    <header>
+      <!-- Theme toggle (left) -->
+      <button id="theme-toggle">☀️</button>
+
+      <!-- Chat title (center) -->
+      <div id="chat-title" style="color:DodgerBlue;">BUDDY BOT</div>
+
+      
+
+      <!-- Realtime toggle (right) -->
+<div class="toggle-wrapper">
+  <span class="toggle-label">Real-time:</span>
+  <label class="toggle-box">
+    <input type="checkbox" id="realtime-checkbox">
+    <span class="toggle-slider"></span>
+  </label>
+</div>
+    </header>
+
+    <!-- Chat messages -->
+    <div id="chat-window"></div>
+
+    <!-- Input area -->
+    <div class="input-area">
+      <textarea id="user-input" rows="1" placeholder="Ask something..."></textarea>
+      <button id="mic-btn" title="Voice Input">🎤</button>
+      <button id="send-btn">➤</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
